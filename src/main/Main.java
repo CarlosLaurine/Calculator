@@ -1,10 +1,13 @@
 package main;
 
 import java.util.InputMismatchException;
+import java.util.Locale;
 import java.util.Scanner;
 
 public class Main {
 	public static void main(String[] args) {
+
+		Locale.setDefault(Locale.US);
 
 		try {
 
@@ -31,26 +34,28 @@ public class Main {
 			System.out.println();
 
 			System.out.println("OBS - Para Operações Trigonométricas, Digite o valor considerando em Radianos");
+			System.out.println();
+			System.out.println("OBS2 - Para Números com Casas Decimais, utilize o Ponto (.) como Separador (ex: 9.1)");
 
-			constante = scan.nextInt();
+			constante = scan.nextDouble();
 			while (operacao.charAt(0) != '=') {
 				operacao = scan.next();
 				if (operacao.charAt(0) != '=') {
 
 					if (operacao.charAt(0) == '+') {
-						variavel = scan.nextInt();
+						variavel = scan.nextDouble();
 						constante += variavel;
 					} else if (operacao.charAt(0) == '-') {
-						variavel = scan.nextInt();
+						variavel = scan.nextDouble();
 						constante -= variavel;
 					} else if (operacao.charAt(0) == '*') {
-						variavel = scan.nextInt();
+						variavel = scan.nextDouble();
 						constante *= variavel;
 					} else if (operacao.charAt(0) == '/') {
-						variavel = scan.nextInt();
+						variavel = scan.nextDouble();
 						constante /= variavel;
 					} else if (operacao.charAt(0) == '^') {
-						variavel = scan.nextInt();
+						variavel = scan.nextDouble();
 						Math.pow(constante, variavel);
 					} else if (operacao.charAt(0) == 'v') {
 						constante = Math.sqrt(constante);
@@ -72,7 +77,7 @@ public class Main {
 				}
 			}
 		} catch (InputMismatchException e) {
-			System.out.println("Erro inesperado aconteceu...");
+			System.out.println("Simbolo Invalido!");
 		}
 	}
 }
